@@ -34,6 +34,15 @@ export const crearTodoHtml = ( todo ) => {
 		}	
 	});
 
+	divTodoList.addEventListener( 'click', ( event ) => { 
+		
+		const nombreElemento = event.target.localName; // input, label button
+		const todoElemento = event.target.parentElement.parentElement;
+
+		console.log( todoElemento );
+
+	});
+
 
 
 
