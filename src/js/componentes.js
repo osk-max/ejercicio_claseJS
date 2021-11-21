@@ -4,6 +4,7 @@ import { todoList } from '../index';
 // Referencia para HTML
 const divTodoList = document.querySelector('.todo-list');
 const txtInput = document.querySelector('.new-todo');
+const btnBorrar = document.querySelector('.clear-completed');
 
 export const crearTodoHtml = ( todo ) => {
 
@@ -34,14 +35,30 @@ export const crearTodoHtml = ( todo ) => {
 		}	
 	});
 
-	divTodoList.addEventListener( 'click', ( event ) => { 
-		
+	divTodoList.addEventListener( 'click', ( event ) => { 		
 		const nombreElemento = event.target.localName; // input, label button
 		const todoElemento = event.target.parentElement.parentElement;
+		const todoId = todoElemento.getAttribute('data-id'); // el getAttribute es una instruccion en JS para trabajar con los atributos en html		
 
-		console.log( todoElemento );
+		if( nombreElemento.includes('input') ){ // Si da click en el ckeck me arroja un input
+			todoList.marcarCompletado( todoId );
+
+			todoElemento.classList.toggle('completed'); // Para tachar la tarea
+
+		} else if( nombreElemento.includes( 'button' ) ){ // Si incluye el button hay que borrar el todo
+
+			todoList.eliminarTodo( todoId );
+			divTodoList.removeChild( todoElemento ); // Removerlo del html
+		} 		
+	});
+
+	btnBorrar.addEventListener('click', () => {
+		
+		todoList.eliminarCompletados();
 
 	});
+
+
 
 
 
