@@ -56,6 +56,17 @@ export const crearTodoHtml = ( todo ) => {
 		
 		todoList.eliminarCompletados();
 
+		for( let i = divTodoList.children.length-1; i >= 0; i-- ) { // Length - 1 porque va a iniciar desde la ultima posicion se ejecuta si i es mayor o iguala cero y con el i-- hago el procedimiento inverso
+
+			const elemento = divTodoList.children[i];
+
+			console.log( elemento );
+
+			if( elemento.classList.contains( 'completed' ) ) { // Con contains puedo mirar si ese elemento tiene una clase y la clase a evaluar es completed
+
+				divTodoList.removeChild( elemento ); // Si la tiene elimino ese elemento del divTodoList
+			}
+		}
 	});
 
 
