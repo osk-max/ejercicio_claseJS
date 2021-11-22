@@ -12,4 +12,7 @@ console.log(todoList);
 crearTodoHtml( tarea );
 
 
+localStorage.setItem('mi-key', 'ABC123');
+
+
 
