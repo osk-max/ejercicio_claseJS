@@ -4,15 +4,14 @@ import { crearTodoHtml } from './js/componentes'
 
 export const todoList = new TodoList();
 
-const tarea = new Todo('Aprender JavaScript');
+localStorage.setItem('mi-key', 'ABC123'); // Primero va el nombre del objeto, arreglo etc seguido del valor que queremos almacenar
+sessionStorage.setItem('mi-key', 'ABC123'); // Primero va el nombre del objeto, arreglo etc seguido del valor que queremos almacenar
 
-todoList.nuevoTodo(tarea);
-console.log(todoList); 
+setTimeout( () => {
 
-crearTodoHtml( tarea );
+  localStorage.removeItem('mi-key');
 
-
-localStorage.setItem('mi-key', 'ABC123');
+}, 1500 );
 
 
 
