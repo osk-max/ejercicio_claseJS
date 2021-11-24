@@ -1,7 +1,8 @@
 export class TodoList {
 
   constructor() {
-    this.todos = [];
+
+    this.cargarLocalStorage();
   }
 
   nuevoTodo( todo ) {
@@ -36,12 +37,10 @@ export class TodoList {
   }
 
   cargarLocalStorage( ) {
-    
-    if( localStorage.getItem( 'todo' ) ) { // Si en el localStorage existe el todo ejecute el sig codigo 
-      
-    }
 
-
-  } 
+    this.todos = ( localStorage.getItem( 'todo' ) ) // Si en el localStorage existe el todo ejecute el sig codigo 
+                  ? JSON.parse( localStorage.getItem( 'todo' ) ) // Con el JSON.parse lo estoy convirtiendo de string a su objeto original 
+                  : [] }; // Si no existe lo inicializo como un arreglo vacio
 }
+
 
