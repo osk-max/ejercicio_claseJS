@@ -68,11 +68,3 @@ export const crearTodoHtml = ( todo ) => {
 			}
 		}
 	});
-
-
-
-
-
-
-
-

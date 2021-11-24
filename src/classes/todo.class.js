@@ -7,5 +7,11 @@ export class Todo {
     this.completado = false;
     this.creado = new Date();
   }
+
+  imprimirClase() { // Metodo EJ
+    console.log(`${ this.tarea } - ${ this.id }`);
+  }
+
 }
+
 
