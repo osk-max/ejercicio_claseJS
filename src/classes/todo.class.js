@@ -1,5 +1,16 @@
 export class Todo {
 
+  static fromJson( { id, tarea, completado, creado } ){ // Recibe la informacion del localStorage
+    
+    const tempTodo = new Todo( tarea ); // tempTodo va a ser una nueva instancia del Todo
+
+    tempTodo.id         = id;
+    tempTodo.completado = completado;
+    tempTodo.creado     = creado;
+
+    return tempTodo; // Regreso la instancia
+  }
+
   constructor ( tarea ) { // Se recibe la tarea que se va a a enlistar
 
     this.tarea = tarea;
