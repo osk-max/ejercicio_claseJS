@@ -1,6 +1,6 @@
 export class Todo {
 
-  static fromJson( { id, tarea, completado, creado } ){ // Recibe la informacion del localStorage
+  static fromJson( { id, tarea, completado, creado } ){ // Recibe la informacion del localStorage y realiza la destructuracion 
     
     const tempTodo = new Todo( tarea ); // tempTodo va a ser una nueva instancia del Todo
 
@@ -17,12 +17,5 @@ export class Todo {
     this.id = new Date().getTime(); // 8956471
     this.completado = false;
     this.creado = new Date();
-  }
-
-  imprimirClase() { // Metodo EJ
-    console.log(`${ this.tarea } - ${ this.id }`);
-  }
-
+  }  
 }
-
-

@@ -6,11 +6,4 @@ export const todoList = new TodoList();
 
 todoList.todos.forEach( crearTodoHtml ); // Para que permanezca en mi html y no se elimine cuando actualizo
 
-const newTodo = new Todo('Mi mejor version');
-
-newTodo.imprimirClase();
-
-// todoList.todos[0].imprimirClase(); // LLamo la posicion  del arr 0 con el metodo que cree de EJ
-
-// console.log( 'todos', todoList.todos );
-
+console.log( 'Prueba', todoList.todos );

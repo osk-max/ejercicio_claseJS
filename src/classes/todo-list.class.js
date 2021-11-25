@@ -1,3 +1,5 @@
+import { Todo } from "./todo.class";
+
 export class TodoList {
 
   constructor() {
@@ -40,7 +42,8 @@ export class TodoList {
 
     this.todos = ( localStorage.getItem( 'todo' ) ) // Si en el localStorage existe el todo ejecute el sig codigo 
                   ? JSON.parse( localStorage.getItem( 'todo' ) ) // Con el JSON.parse lo estoy convirtiendo de string a su objeto original 
-                  : [] }; // Si no existe lo inicializo como un arreglo vacio
+                  : []; // Si no existe lo inicializo como un arreglo vacio 
+                
+    this.todos = this.todos.map( Todo.fromJson ); // Retorna las instancias de cada uno de los todos                
+  }
 }
-
-
