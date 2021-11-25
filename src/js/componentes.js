@@ -5,6 +5,7 @@ import { todoList } from '../index';
 const divTodoList = document.querySelector('.todo-list');
 const txtInput = document.querySelector('.new-todo');
 const btnBorrar = document.querySelector('.clear-completed');
+const ulFiltros = document.querySelector(' .filters ');
 
 export const crearTodoHtml = ( todo ) => {
 
@@ -68,3 +69,17 @@ export const crearTodoHtml = ( todo ) => {
 			}
 		}
 	});
+
+	ulFiltros.addEventListener( 'click', ( event ) => {
+
+		const filtro = event.target.text;
+
+		if( !filtro ) { return } ; // Si filtro no existe hago un return
+
+		for( const elemento of divTodoList.children ) {
+
+			console.log( elemento );
+		} 
+
+	});
+	
