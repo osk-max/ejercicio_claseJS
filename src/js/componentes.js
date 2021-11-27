@@ -76,10 +76,24 @@ export const crearTodoHtml = ( todo ) => {
 
 		if( !filtro ) { return } ; // Si filtro no existe hago un return
 
-		for( const elemento of divTodoList.children ) {
+		for( const elemento of divTodoList.children ) { // Barro cada uno de los elementos que tenemos en divTodoList 
 
-			console.log( elemento );
+			elemento.classList.remove('hidden'); // Limpiar esta clase o limpiarla
+			const completado = elemento.classList.contains('completed'); // Para saber si el elemento actual tiene la clase completed o no 
+			
+			switch( filtro ) {
+				case 'Pendientes':
+					if( completado  ) {
+						elemento.classList.add('hidden');
+					}
+					break;
+
+					case 'Completados':
+						if( !completado  ) {
+							elemento.classList.add('hidden');
+						}
+						break;
+			}
 		} 
-
-	});
+});
 	
