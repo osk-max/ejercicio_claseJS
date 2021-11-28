@@ -2,10 +2,11 @@ import { Todo } from '../classes';
 import { todoList } from '../index';
 
 // Referencia para HTML
-const divTodoList = document.querySelector('.todo-list');
-const txtInput = document.querySelector('.new-todo');
-const btnBorrar = document.querySelector('.clear-completed');
-const ulFiltros = document.querySelector(' .filters ');
+const divTodoList   = document.querySelector('.todo-list');
+const txtInput      = document.querySelector('.new-todo');
+const btnBorrar     = document.querySelector('.clear-completed');
+const ulFiltros     = document.querySelector(' .filters ');
+const anchorFiltros = document.querySelectorAll('.filtro');
 
 export const crearTodoHtml = ( todo ) => {
 
@@ -74,8 +75,11 @@ export const crearTodoHtml = ( todo ) => {
 
 		const filtro = event.target.text;
 
-		if( !filtro ) { return } ; // Si filtro no existe hago un return
+		if( !filtro ) { return }; // Si filtro no existe hago un return
 
+		anchorFiltros.forEach( elem => elem.classList.remove('selected') ); // Hago un barrido de todos los elementos que tienen la clase filtro y voy a remover la clase .selected		
+		event.target.classList.add('selected'); // Le agrego el class selected al que seleccione 
+		
 		for( const elemento of divTodoList.children ) { // Barro cada uno de los elementos que tenemos en divTodoList 
 
 			elemento.classList.remove('hidden'); // Limpiar esta clase o limpiarla
